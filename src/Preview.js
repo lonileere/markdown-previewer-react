@@ -1,17 +1,16 @@
 import React, {Component} from 'react';
+import marked from 'marked';
 import './Preview.css'
 
 class Preview extends Component {
-    constructor(props) {
-        super(props);
 
+    getMarkdownText() {
+        let parsedText = marked(this.props.preview)
+        return { __html: parsedText};
     }
-
     render() {
         return (
-            <div id="preview">
-                {this.props.preview}
-            </div>
+            <div id="preview" dangerouslySetInnerHTML={this.getMarkdownText()}/>
         );
     }
 }

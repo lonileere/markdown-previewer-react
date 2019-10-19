@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Preview from "./Preview";
 
@@ -8,7 +7,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      input: '',
+      input: `<h1> Hi guys whats going on </h1> <h2> I am testing my markdown previewer rn </h2>`,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -33,7 +32,9 @@ class App extends Component {
           </div>
           <div className="row">
             <div className="col-sm-6 offset-sm-3">
-              <textarea type="text" onChange={this.handleChange} className="form-control" rows="10"></textarea>
+              <textarea type="text" onChange={this.handleChange} className="form-control" rows="10">
+                {this.state.input}
+              </textarea>
             </div>
           </div>
         </div>
